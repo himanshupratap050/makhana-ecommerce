@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MakhanaBliss — Pure. Natural. Powerful.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- TOAST -->
+    <div class="toast" id="toast"></div>
+
+    <!-- NAV -->
+    <nav>
+        <div class="nav-logo" onclick="navigate('home')">Makhana<span>Bliss</span></div>
+        <div class="nav-links">
+            <a onclick="navigate('home')">Home</a>
+            <a onclick="navigate('products')">Products</a>
+            <a onclick="navigate('about')">About</a>
+            <a onclick="navigate('contact')">Contact</a>
+        </div>
+        <div class="nav-actions">
+            <button class="admin-btn" onclick="navigate('admin')">⚙ Admin</button>
+            <button class="cart-btn" onclick="navigate('cart')">
+                🛒 Cart <span class="cart-count" id="cartCount">0</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ===== HOME PAGE ===== -->
+    <div class="page active" id="page-home">
+
+        <!-- HERO -->
+        <section class="hero">
+            <div class="hero-left">
+                <div class="hero-badge">From Mithila's Wetlands</div>
+                <h1>Snack <em>Pure,</em><br />Live Better</h1>
+                <p class="hero-desc">
+                    Hand-harvested fox nuts from Bihar's pristine wetlands. No additives, no preservatives — just
+                    nature's most powerful superfood in every bite.
+                </p>
+                <div class="hero-actions">
+                    <button class="btn-primary" onclick="navigate('products')">Shop Now →</button>
+                    <button class="btn-ghost" onclick="scrollTo({top:600,behavior:'smooth'})">Learn More</button>
+                </div>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <span class="num">2.4k+</span>
+                        <span class="label">Happy Customers</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="num">97%</span>
+                        <span class="label">Repeat Rate</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="num">100%</span>
+                        <span class="label">Natural</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-right">
+                <div class="hero-img-wrap">
+                    <div class="hero-img-bg"></div>
+                    <div class="hero-product-card">
+                        <div class="makhana-visual" id="heroMakhana"></div>
+                        <div class="hero-card-label">Premium Makhana</div>
+                        <div class="hero-card-sub">Hand-harvested · 100g Pack</div>
+                    </div>
+                    <div class="hero-float-tag tag1">🌿 Zero Chemicals</div>
+                    <div class="hero-float-tag tag2">⚡ 9g Protein/Serve</div>
+                    <div class="hero-float-tag tag3">💚 Low GI</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHY SECTION -->
+        <section class="why-section">
+            <div style="max-width:1100px; margin:0 auto;">
+                <p class="section-label">Why Makhana?</p>
+                <h2 class="section-title" style="color:var(--cream)">The Ancient Superfood<br />Your Body Craves</h2>
+                <div class="why-grid">
+                    <div class="why-features">
+                        <div class="why-feature">
+                            <div class="why-icon">⚡</div>
+                            <div>
+                                <h3>Sustained Energy — No Crash</h3>
+                                <p>Low glycemic index keeps energy stable all day without the mid-afternoon slump from
+                                    processed snacks.</p>
+                            </div>
+                        </div>
+                        <div class="why-feature">
+                            <div class="why-icon">💪</div>
+                            <div>
+                                <h3>Plant-Based Protein Powerhouse</h3>
+                                <p>9.75g of protein per 100g — perfect fuel for active professionals and fitness
+                                    enthusiasts.</p>
+                            </div>
+                        </div>
+                        <div class="why-feature">
+                            <div class="why-icon">❤️</div>
+                            <div>
+                                <h3>Zero Cholesterol, Heart Healthy</h3>
+                                <p>Unlike chips or fried snacks, makhana keeps your heart happy with zero cholesterol
+                                    and minimal fat.</p>
+                            </div>
+                        </div>
+                        <div class="why-feature">
+                            <div class="why-icon">🌾</div>
+                            <div>
+                                <h3>Sourced from Mithila Farmers</h3>
+                                <p>Every pack supports sustainable farming communities in Bihar — quality you can feel
+                                    good about.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nutrition-card">
+                        <h3>Nutrition Per 100g</h3>
+                        <div class="nutr-row">
+                            <span class="nutr-name">Calories</span>
+                            <div class="nutr-bar-wrap">
+                                <div class="nutr-bar" style="width:65%"></div>
+                            </div>
+                            <span class="nutr-val">349 kcal</span>
+                        </div>
+                        <div class="nutr-row">
+                            <span class="nutr-name">Protein</span>
+                            <div class="nutr-bar-wrap">
+                                <div class="nutr-bar" style="width:50%"></div>
+                            </div>
+                            <span class="nutr-val">9.75g</span>
+                        </div>
+                        <div class="nutr-row">
+                            <span class="nutr-name">Carbs</span>
+                            <div class="nutr-bar-wrap">
+                                <div class="nutr-bar" style="width:78%"></div>
+                            </div>
+                            <span class="nutr-val">76.9g</span>
+                        </div>
+                        <div class="nutr-row">
+                            <span class="nutr-name">Fat</span>
+                            <div class="nutr-bar-wrap">
+                                <div class="nutr-bar" style="width:5%"></div>
+                            </div>
+                            <span class="nutr-val">0.62g</span>
+                        </div>
+                        <div class="nutr-row">
+                            <span class="nutr-name">Cholesterol</span>
+                            <div class="nutr-bar-wrap">
+                                <div class="nutr-bar" style="width:0%"></div>
+                            </div>
+                            <span class="nutr-val">0 mg</span>
+                        </div>
+                        <div class="nutr-row">
+                            <span class="nutr-name">Antioxidants</span>
+                            <div class="nutr-bar-wrap">
+                                <div class="nutr-bar" style="width:85%"></div>
+                            </div>
+                            <span class="nutr-val">High ✓</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRODUCTS PREVIEW -->
+        <section class="products-preview">
+            <div class="section-header">
+                <div>
+                    <p class="section-label">Our Products</p>
+                    <h2 class="section-title">Fresh from the Farm</h2>
+                </div>
+                <button class="btn-ghost" onclick="navigate('products')">View All →</button>
+            </div>
+            <div class="products-grid" id="homeProductsGrid"></div>
+        </section>
+
+        <!-- TESTIMONIALS -->
+        <section class="testimonials">
+            <div style="max-width:1100px; margin:0 auto;">
+                <p class="section-label">Reviews</p>
+                <h2 class="section-title">India Loves MakhanaBliss</h2>
+                <div class="testi-grid">
+                    <div class="testi-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="testi-text">"Finally a healthy snack that actually tastes great! I keep a pack at my
+                            desk always. No more biscuit breaks!"</p>
+                        <div class="testi-author">
+                            <div class="testi-avatar">P</div>
+                            <div>
+                                <div class="testi-name">Priya Sharma</div>
+                                <div class="testi-loc">Mumbai · Verified Buyer</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testi-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="testi-text">"Ordered for my family in Gurgaon. Quality is exceptional — you can taste
+                            the freshness. Will definitely reorder."</p>
+                        <div class="testi-author">
+                            <div class="testi-avatar" style="background:var(--green)">R</div>
+                            <div>
+                                <div class="testi-name">Rahul Verma</div>
+                                <div class="testi-loc">Delhi NCR · Verified Buyer</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testi-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="testi-text">"As a nutritionist, I recommend makhana to all my clients. MakhanaBliss
+                            has the purest quality I've seen."</p>
+                        <div class="testi-author">
+                            <div class="testi-avatar" style="background:var(--dark-brown)">A</div>
+                            <div>
+                                <div class="testi-name">Dr. Anita Joshi</div>
+                                <div class="testi-loc">Bangalore · Nutritionist</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div style="font-family:'Playfair Display',serif; font-size:1.5rem; font-weight:900;">Makhana<span
+                            style="color:var(--gold)">Bliss</span></div>
+                    <p>Premium fox nuts sourced directly from Mithila farmers. Bringing Bihar's finest superfood to your
+                        doorstep.</p>
+                    <div style="margin-top:16px; font-size:0.82rem; color:rgba(245,237,214,0.4);">📍 Bihar, India
+                        &nbsp;·&nbsp; 📞 +91 9097757147</div>
+                </div>
+                <div class="footer-col">
+                    <h4>Products</h4>
+                    <a onclick="navigate('products')">Plain Makhana</a>
+                    <a onclick="navigate('products')">Flavoured Makhana</a>
+                    <a onclick="navigate('products')">Combo Packs</a>
+                    <a onclick="navigate('products')">Gift Sets</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <a onclick="navigate('about')">Our Story</a>
+                    <a>Quality Promise</a>
+                    <a>Farmer Partners</a>
+                    <a>Blog</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <a>Contact Us</a>
+                    <a>Shipping Policy</a>
+                    <a>Returns</a>
+                    <a>FAQ</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 MakhanaBliss. All rights reserved.</span>
+                <span>Made with ❤️ in Bihar</span>
+            </div>
+        </footer>
+    </div>
+
+    <!-- ===== PRODUCTS PAGE ===== -->
+    <div class="page" id="page-products">
+        <div class="page-hero">
+            <p class="section-label" style="color:var(--gold)">Our Collection</p>
+            <h1>Pure. Natural. Powerful.</h1>
+            <p>Hand-harvested fox nuts in every size and flavour you need</p>
+        </div>
+        <div class="filter-bar" id="filterBar">
+            <button class="filter-btn active" onclick="filterProducts('all', this)">All Products</button>
+            <button class="filter-btn" onclick="filterProducts('plain', this)">Plain Makhana</button>
+            <button class="filter-btn" onclick="filterProducts('flavoured', this)">Flavoured</button>
+            <button class="filter-btn" onclick="filterProducts('combo', this)">Combo Packs</button>
+            <button class="filter-btn" onclick="filterProducts('special', this)">Special</button>
+        </div>
+        <div class="products-page-grid">
+            <div class="all-products-grid" id="allProductsGrid"></div>
+        </div>
+        <footer>
+            <div class="footer-bottom" style="border:none; padding:24px 5%;">
+                <span>© 2026 MakhanaBliss. All rights reserved.</span>
+                <span>Made with ❤️ in Bihar</span>
+            </div>
+        </footer>
+    </div>
+
+    <!-- ===== CART PAGE ===== -->
+    <div class="page" id="page-cart">
+        <div class="cart-page">
+            <h1 class="cart-title">Your Cart</h1>
+            <div id="cartContent"></div>
+        </div>
+    </div>
+
+    <!-- ===== CHECKOUT PAGE ===== -->
+    <div class="page" id="page-checkout">
+        <div class="checkout-page">
+            <h1 class="cart-title">Checkout</h1>
+            <div class="checkout-layout">
+                <div>
+                    <div class="form-section">
+                        <h3 class="form-section-title">
+                            <span class="step-num">1</span> Delivery Details
+                        </h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>First Name *</label>
+                                <input type="text" id="fname" placeholder="Rahul" />
+                                <div class="error-msg" id="fname-err"></div>
+                            </div>
+                            <div class="form-group">
+                                <label>Last Name *</label>
+                                <input type="text" id="lname" placeholder="Sharma" />
+                                <div class="error-msg" id="lname-err"></div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Phone Number *</label>
+                                <input type="tel" id="phone" placeholder="+91 98765 43210" />
+                                <div class="error-msg" id="phone-err"></div>
+                            </div>
+                            <div class="form-group">
+                                <label>Email Address *</label>
+                                <input type="email" id="email" placeholder="rahul@email.com" />
+                                <div class="error-msg" id="email-err"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Address Line 1 *</label>
+                            <input type="text" id="addr1" placeholder="House No., Street Name" />
+                            <div class="error-msg" id="addr1-err"></div>
+                        </div>
+                        <div class="form-group">
+                            <label>Address Line 2</label>
+                            <input type="text" id="addr2" placeholder="Landmark, Area (optional)" />
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>City *</label>
+                                <input type="text" id="city" placeholder="Patna" />
+                                <div class="error-msg" id="city-err"></div>
+                            </div>
+                            <div class="form-group">
+                                <label>State *</label>
+                                <select id="state">
+                                    <option value="">Select State</option>
+                                    <option>Bihar</option>
+                                    <option>Delhi</option>
+                                    <option>Maharashtra</option>
+                                    <option>Karnataka</option>
+                                    <option>Uttar Pradesh</option>
+                                    <option>West Bengal</option>
+                                    <option>Rajasthan</option>
+                                    <option>Gujarat</option>
+                                    <option>Tamil Nadu</option>
+                                    <option>Telangana</option>
+                                    <option>Other</option>
+                                </select>
+                                <div class="error-msg" id="state-err"></div>
+                            </div>
+                        </div>
+                        <div class="form-group" style="max-width:200px">
+                            <label>PIN Code *</label>
+                            <input type="text" id="pin" placeholder="800001" />
+                            <div class="error-msg" id="pin-err"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3 class="form-section-title">
+                            <span class="step-num">2</span> Payment Method
+                        </h3>
+                        <div class="cod-info">
+                            <div class="cod-icon">💵</div>
+                            <div>
+                                <h4>Cash on Delivery (COD)</h4>
+                                <p>Pay when your order arrives at your doorstep. No online payment required. We accept
+                                    cash and UPI at delivery.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="place-order-btn" onclick="placeOrder()">
+                        🛒 Place Order — COD
+                    </button>
+                </div>
+
+                <div class="checkout-summary">
+                    <div class="summary-title">Order Summary</div>
+                    <div id="checkoutItems"></div>
+                    <div id="checkoutTotals"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== ORDER CONFIRMATION ===== -->
+    <div class="page" id="page-confirm">
+        <div class="confirm-page">
+            <div class="confirm-icon">✓</div>
+            <h1>Order Placed!</h1>
+            <p>Thank you! Your order has been confirmed and will be dispatched within 24 hours.</p>
+            <div class="order-details-card" id="confirmDetails"></div>
+            <div class="confirm-actions">
+                <button class="btn-primary" onclick="navigate('products')">Continue Shopping</button>
+                <button class="btn-ghost" onclick="navigate('home')">Back to Home</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== ABOUT PAGE ===== -->
+    <div class="page" id="page-about">
+    
+        <!-- HERO -->
+        <section class="about-hero">
+            <div class="about-hero-inner">
+                <p class="section-label">Our Story</p>
+                <h1 class="about-hero-title">Born in Bihar,<br />Built for <em>India</em></h1>
+                <p class="about-hero-desc">
+                    MakhanaBliss started with one simple belief — the healthiest snack in the world
+                    was already growing in Bihar's wetlands. We just needed to bring it to you.
+                </p>
+            </div>
+            <div class="about-hero-visual">
+                <div class="about-blob"></div>
+                <div class="about-img-card">
+                    <span style="font-size:5rem">🌾</span>
+                    <p style="font-family:'Playfair Display',serif; font-size:1.2rem; margin-top:16px; color:var(--dark)">
+                        Mithila, Bihar</p>
+                    <p style="font-size:0.85rem; color:var(--text-muted)">Where it all begins</p>
+                </div>
+            </div>
+        </section>
+    
+        <!-- FOUNDER STORY -->
+        <section class="founder-section">
+            <div class="founder-inner">
+                <div class="founder-img">
+                    <div class="founder-avatar">🧑‍🌾</div>
+                    <div class="founder-tag">Founder & CEO</div>
+                </div>
+                <div class="founder-content">
+                    <p class="section-label">Founder's Note</p>
+                    <h2 class="section-title">Why I Started<br />MakhanaBliss</h2>
+                    <p class="founder-text">
+                        Growing up in Bihar, makhana was always part of our lives — eaten during fasts,
+                        made into kheer, roasted on winter evenings. But when I moved to a city, I couldn't
+                        find the same pure, fresh makhana anywhere.
+                    </p>
+                    <p class="founder-text">
+                        Everything in stores was either stale, overpriced, or loaded with additives.
+                        That's when I decided to go back to my roots — literally. I partnered directly
+                        with farmers in Mithila and started MakhanaBliss.
+                    </p>
+                    <p class="founder-text">
+                        Today, every pack you order comes straight from those same trusted farmers,
+                        processed with zero chemicals, and delivered fresh to your door.
+                    </p>
+                    <div class="founder-sign">— Founder, MakhanaBliss</div>
+                </div>
+            </div>
+        </section>
+    
+        <!-- MISSION & VALUES -->
+        <section class="mission-section">
+            <div style="max-width:1100px; margin:0 auto; padding:0 5%;">
+                <div style="text-align:center; margin-bottom:60px;">
+                    <p class="section-label">What We Stand For</p>
+                    <h2 class="section-title">Our Mission & Values</h2>
+                </div>
+                <div class="mission-grid">
+                    <div class="mission-card">
+                        <div class="mission-icon">🌿</div>
+                        <h3>100% Natural</h3>
+                        <p>No preservatives, no artificial flavours, no chemicals. Ever. What you get is exactly what nature
+                            made.</p>
+                    </div>
+                    <div class="mission-card">
+                        <div class="mission-icon">🤝</div>
+                        <h3>Farmer First</h3>
+                        <p>We pay fair prices directly to Mithila farmers, cutting out middlemen and supporting rural
+                            livelihoods.</p>
+                    </div>
+                    <div class="mission-card">
+                        <div class="mission-icon">✅</div>
+                        <h3>Quality Promise</h3>
+                        <p>Every batch is tested for purity and freshness before it reaches your doorstep. No compromises.
+                        </p>
+                    </div>
+                    <div class="mission-card">
+                        <div class="mission-icon">🌍</div>
+                        <h3>Sustainable Farming</h3>
+                        <p>Makhana farming naturally enriches wetland ecosystems. We actively support these traditional
+                            methods.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <!-- FARM TO FORK -->
+        <section class="farm-section">
+            <div style="max-width:1100px; margin:0 auto;">
+                <div style="text-align:center; margin-bottom:60px;">
+                    <p class="section-label" style="color:var(--gold)">Our Process</p>
+                    <h2 class="section-title" style="color:var(--cream)">Farm to Your Fork</h2>
+                </div>
+                <div class="farm-steps">
+                    <div class="farm-step">
+                        <div class="farm-step-num">01</div>
+                        <div class="farm-icon">🌊</div>
+                        <h3>Harvested</h3>
+                        <p>Hand-picked from Mithila's pristine wetlands by experienced farmers</p>
+                    </div>
+                    <div class="farm-arrow">→</div>
+                    <div class="farm-step">
+                        <div class="farm-step-num">02</div>
+                        <div class="farm-icon">☀️</div>
+                        <h3>Sun Dried</h3>
+                        <p>Naturally dried under the sun — no artificial heat or chemicals used</p>
+                    </div>
+                    <div class="farm-arrow">→</div>
+                    <div class="farm-step">
+                        <div class="farm-step-num">03</div>
+                        <div class="farm-icon">🔍</div>
+                        <h3>Quality Check</h3>
+                        <p>Every batch tested for purity, freshness, and nutritional content</p>
+                    </div>
+                    <div class="farm-arrow">→</div>
+                    <div class="farm-step">
+                        <div class="farm-step-num">04</div>
+                        <div class="farm-icon">📦</div>
+                        <h3>Packed & Shipped</h3>
+                        <p>Sealed in premium packaging and dispatched within 24 hours</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <!-- STATS -->
+        <section style="padding:80px 5%; background:var(--warm-white);">
+            <div style="max-width:900px; margin:0 auto;">
+                <div class="about-stats">
+                    <div class="about-stat">
+                        <div class="about-stat-num">2,400+</div>
+                        <div class="about-stat-label">Happy Customers</div>
+                    </div>
+                    <div class="about-stat">
+                        <div class="about-stat-num">97%</div>
+                        <div class="about-stat-label">Repeat Order Rate</div>
+                    </div>
+                    <div class="about-stat">
+                        <div class="about-stat-num">100%</div>
+                        <div class="about-stat-label">Natural & Pure</div>
+                    </div>
+                    <div class="about-stat">
+                        <div class="about-stat-num">24hr</div>
+                        <div class="about-stat-label">Dispatch Time</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <!-- CTA -->
+        <section style="padding:80px 5%; background:var(--dark); text-align:center;">
+            <p class="section-label" style="color:var(--gold)">Ready to Try?</p>
+            <h2 class="section-title" style="color:var(--cream); margin-bottom:32px;">
+                Experience the MakhanaBliss<br />Difference Today
+            </h2>
+            <button class="btn-primary" onclick="navigate('products')">Shop Premium Makhana →</button>
+        </section>
+    
+        <!-- FOOTER -->
+        <footer>
+            <div class="footer-bottom" style="border:none; padding:24px 5%;">
+                <span>© 2026 MakhanaBliss. All rights reserved.</span>
+                <span>Made with ❤️ in Bihar</span>
+            </div>
+        </footer>
+    </div>
+    
+    <!-- ===== CONTACT PAGE ===== -->
+    <div class="page" id="page-contact">
+    
+        <!-- HERO -->
+        <div class="page-hero">
+            <p class="section-label" style="color:var(--gold)">Get In Touch</p>
+            <h1>We'd Love to<br />Hear From You</h1>
+            <p>Questions, feedback, bulk orders — we're just a message away</p>
+        </div>
+    
+        <section class="contact-section">
+            <div class="contact-layout">
+    
+                <!-- CONTACT FORM -->
+                <div class="contact-form-wrap">
+                    <h2 style="font-family:'Playfair Display',serif; font-size:1.6rem; margin-bottom:8px;">Send Us a Message
+                    </h2>
+                    <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:28px;">We usually reply within 24
+                        hours</p>
+    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Your Name *</label>
+                            <input type="text" id="cname" placeholder="Rahul Sharma" />
+                            <div class="error-msg" id="cname-err"></div>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number *</label>
+                            <input type="tel" id="cphone" placeholder="+91 98765 43210" />
+                            <div class="error-msg" id="cphone-err"></div>
+                        </div>
+                    </div>
+    
+                    <div class="form-group">
+                        <label>Email Address *</label>
+                        <input type="email" id="cemail" placeholder="rahul@email.com" />
+                        <div class="error-msg" id="cemail-err"></div>
+                    </div>
+    
+                    <div class="form-group">
+                        <label>Subject</label>
+                        <select id="csubject">
+                            <option value="">Select a topic</option>
+                            <option>Order Query</option>
+                            <option>Product Question</option>
+                            <option>Bulk / B2B Order</option>
+                            <option>Return / Refund</option>
+                            <option>Partnership</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+    
+                    <div class="form-group">
+                        <label>Message *</label>
+                        <textarea id="cmessage" rows="5" placeholder="Tell us how we can help you..."></textarea>
+                        <div class="error-msg" id="cmessage-err"></div>
+                    </div>
+    
+                    <button class="btn-primary" style="width:100%; padding:16px;" onclick="submitContact()">
+                        Send Message →
+                    </button>
+    
+                    <!-- SUCCESS MESSAGE -->
+                    <div class="contact-success" id="contactSuccess">
+                        <div style="font-size:2rem; margin-bottom:12px;">✓</div>
+                        <h3>Message Sent!</h3>
+                        <p>Thank you for reaching out. We'll get back to you within 24 hours.</p>
+                    </div>
+                </div>
+    
+                <!-- CONTACT DETAILS -->
+                <div class="contact-details">
+    
+                    <div class="contact-info-card">
+                        <h3>Contact Information</h3>
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon">📞</div>
+                            <div>
+                                <div class="contact-info-label">Phone</div>
+                                <div class="contact-info-value">+91 90977 57147</div>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon">📧</div>
+                            <div>
+                                <div class="contact-info-label">Email</div>
+                                <div class="contact-info-value">himanshupratap2802@gmail.com</div>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon">📍</div>
+                            <div>
+                                <div class="contact-info-label">Address</div>
+                                <div class="contact-info-value">Bihar, India — 800001</div>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon">🕐</div>
+                            <div>
+                                <div class="contact-info-label">Business Hours</div>
+                                <div class="contact-info-value">Mon–Sat: 9am – 6pm IST</div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- WHATSAPP -->
+                    <a class="whatsapp-btn" href="https://wa.me/919097757147" target="_blank">
+                        <span style="font-size:1.4rem">💬</span>
+                        <div>
+                            <div style="font-weight:600; font-size:0.95rem;">Chat on WhatsApp</div>
+                            <div style="font-size:0.8rem; opacity:0.8;">Fastest response — usually within 1 hour</div>
+                        </div>
+                        <span style="margin-left:auto; font-size:1.2rem;">→</span>
+                    </a>
+    
+                    <!-- FAQ QUICK -->
+                    <div class="contact-faq">
+                        <h3>Quick Answers</h3>
+                        <div class="faq-item" onclick="toggleFaq(this)">
+                            <div class="faq-q">How long does delivery take? <span class="faq-arrow">▼</span></div>
+                            <div class="faq-a">Standard delivery takes 3–5 business days across India. Express delivery
+                                available in select cities.</div>
+                        </div>
+                        <div class="faq-item" onclick="toggleFaq(this)">
+                            <div class="faq-q">Do you offer bulk / B2B orders? <span class="faq-arrow">▼</span></div>
+                            <div class="faq-a">Yes! We offer special pricing for bulk orders above 10kg. Contact us with
+                                your requirement.</div>
+                        </div>
+                        <div class="faq-item" onclick="toggleFaq(this)">
+                            <div class="faq-q">What is your return policy? <span class="faq-arrow">▼</span></div>
+                            <div class="faq-a">If you receive a damaged or incorrect product, we offer full replacement or
+                                refund within 7 days of delivery.</div>
+                        </div>
+                        <div class="faq-item" onclick="toggleFaq(this)">
+                            <div class="faq-q">Is COD available everywhere? <span class="faq-arrow">▼</span></div>
+                            <div class="faq-a">COD is available across most pin codes in India. Enter your PIN at checkout
+                                to confirm availability.</div>
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+        </section>
+    
+        <!-- FOOTER -->
+        <footer>
+            <div class="footer-bottom" style="border:none; padding:24px 5%;">
+                <span>© 2026 MakhanaBliss. All rights reserved.</span>
+                <span>Made with ❤️ in Bihar</span>
+            </div>
+        </footer>
+    </div>
+
+    <!-- ===== ADMIN PAGE ===== -->
+    <div class="page" id="page-admin">
+        <div class="admin-page">
+            <div class="admin-layout">
+                <div class="admin-sidebar">
+                    <div class="admin-sidebar-title">Admin Panel</div>
+                    <div class="sidebar-item active" onclick="showAdminPanel('dashboard', this)">📊 Dashboard</div>
+                    <div class="sidebar-item" onclick="showAdminPanel('products', this)">📦 Products</div>
+                    <div class="sidebar-item" onclick="showAdminPanel('orders', this)">🛒 Orders</div>
+                    <div class="sidebar-item" style="margin-top:auto; padding-top:32px;" onclick="navigate('home')">←
+                        Back to Site</div>
+                </div>
+                <div class="admin-content">
+
+                    <!-- Dashboard -->
+                    <div class="admin-panel active" id="admin-dashboard">
+                        <div class="admin-header">
+                            <h2 class="admin-title">Dashboard</h2>
+                            <span style="font-size:0.85rem; color:var(--text-muted)">Welcome back 👋</span>
+                        </div>
+                        <div class="admin-stats" id="adminStats"></div>
+                        <h3 style="font-family:'Playfair Display',serif; font-size:1.2rem; margin-bottom:16px;">Recent
+                            Orders</h3>
+                        <div class="admin-products-list">
+                            <table class="admin-table" id="recentOrdersTable"></table>
+                        </div>
+                    </div>
+
+                    <!-- Products Management -->
+                    <div class="admin-panel" id="admin-products">
+                        <div class="admin-header">
+                            <h2 class="admin-title">Products</h2>
+                            <button class="btn-primary" style="padding:10px 24px; font-size:0.9rem;"
+                                onclick="toggleAddForm()">+ Add Product</button>
+                        </div>
+
+                        <div class="admin-form" id="addProductForm" style="display:none">
+                            <h3 id="formTitle">Add New Product</h3>
+                            <input type="hidden" id="editProductId" />
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Product Name *</label>
+                                    <input type="text" id="pName" placeholder="Premium Plain Makhana" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Category</label>
+                                    <select id="pCategory">
+                                        <option value="plain">Plain Makhana</option>
+                                        <option value="flavoured">Flavoured</option>
+                                        <option value="combo">Combo</option>
+                                        <option value="special">Special</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Selling Price (₹) *</label>
+                                    <input type="number" id="pPrice" placeholder="174" />
+                                </div>
+                                <div class="form-group">
+                                    <label>MRP (₹)</label>
+                                    <input type="number" id="pMrp" placeholder="299" />
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Weight / Size</label>
+                                    <input type="text" id="pWeight" placeholder="100g" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Stock Qty</label>
+                                    <input type="number" id="pStock" placeholder="100" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Description</label>
+                                <textarea id="pDesc" rows="3" placeholder="Product description..."></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Emoji Icon (for display)</label>
+                                <input type="text" id="pEmoji" placeholder="🌾" />
+                            </div>
+                            <div style="display:flex; gap:12px; margin-top:8px;">
+                                <button class="btn-primary" style="padding:12px 28px;" onclick="saveProduct()">Save
+                                    Product</button>
+                                <button class="btn-ghost" style="padding:12px 24px;"
+                                    onclick="toggleAddForm()">Cancel</button>
+                            </div>
+                        </div>
+
+                        <div class="admin-products-list">
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>Product</th>
+                                        <th>Category</th>
+                                        <th>Price</th>
+                                        <th>MRP</th>
+                                        <th>Stock</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="adminProductsTable"></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Orders -->
+                    <div class="admin-panel" id="admin-orders">
+                        <div class="admin-header">
+                            <h2 class="admin-title">Orders</h2>
+                        </div>
+                        <div class="admin-products-list">
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>Order ID</th>
+                                        <th>Customer</th>
+                                        <th>Items</th>
+                                        <th>Total</th>
+                                        <th>Status</th>
+                                        <th>Date</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="adminOrdersTable"></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
