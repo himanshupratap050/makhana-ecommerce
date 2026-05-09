@@ -3,7 +3,7 @@ MakhanaBliss 🌾
 A modern and responsive e-commerce website for premium Makhana (Fox Nuts) products built using HTML, CSS, and JavaScript.
 MakhanaBliss focuses on delivering a clean UI, smooth shopping experience, and powerful frontend functionality without any external framework.
 
-index.html
+index.html 
 style.css
 script.js
 
